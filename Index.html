@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Business Website</title>
+
+<style>
+:root{
+    --bg:#f8fafc;
+    --text:#111;
+    --card:#ffffff;
+    --primary:#6a11cb;
+    --secondary:#2575fc;
+}
+
+body.dark{
+    --bg:#0f172a;
+    --text:#f8fafc;
+    --card:#1e293b;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    transition:0.4s;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    padding:20px 40px;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+/* BUTTON */
+.btn{
+    padding:12px 26px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    color:white;
+    font-weight:600;
+}
+
+/* HERO */
+.hero{
+    padding:90px 40px;
+    text-align:center;
+    animation:fade 1.2s ease;
+}
+
+@keyframes fade{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1;}
+}
+
+/* SECTIONS */
+section{
+    padding:70px 40px;
+}
+
+.card{
+    background:var(--card);
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+    margin-bottom:25px;
+}
+
+/* INPUTS */
+input{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border-radius:12px;
+    border:1px solid #ccc;
+    font-size:15px;
+}
+
+/* TABLE */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+th,td{
+    padding:12px;
+    border-bottom:1px solid #ccc;
+    text-align:left;
+}
+
+/* DASHBOARD */
+#dashboard{
+    display:none;
+}
+
+/* FOOTER */
+footer{
+    background:#020617;
+    color:white;
+    padding:30px;
+    text-align:center;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    header{
+        text-align:center;
+        gap:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <h2>Premium Demo Website</h2>
+    <nav>
+        <span>📞 <strong>9305893662</strong></span>
+        <a href="#payment">Payment</a>
+        <a href="#login">Admin</a>
+        <button class="btn" onclick="toggleDark()">🌙</button>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Premium Website for Local Businesses</h1>
+    <p>Tuition • Coaching • Shops • Services</p><br>
+    <button class="btn" onclick="scrollPay()">Get Started</button>
+</section>
+
+<!-- PAYMENT -->
+<section id="payment">
+    <h2>💳 Online Fee / Order Payment (Demo)</h2>
+    <div class="card">
+        <input placeholder="Student / Customer Name">
+        <input placeholder="Amount (₹)">
+        <input placeholder="UPI / Card / Wallet">
+        <button class="btn" onclick="payNow()">Pay Now</button>
+    </div>
+</section>
+
+<!-- ADMIN LOGIN -->
+<section id="login">
+    <h2>🔐 Admin Login</h2>
+    <div class="card">
+        <input id="user" placeholder="Username">
+        <input id="pass" type="password" placeholder="Password">
+        <button class="btn" onclick="login()">Login</button>
+        <p style="margin-top:10px;font-size:14px;">Demo Login → admin / 1234</p>
+    </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+    <h2>📊 Admin Dashboard</h2>
+    <div class="card">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>Amit</td>
+                <td>Paid</td>
+                <td>₹3000</td>
+            </tr>
+            <tr>
+                <td>Riya</td>
+                <td>Pending</td>
+                <td>₹2500</td>
+            </tr>
+            <tr>
+                <td>Rahul</td>
+                <td>Paid</td>
+                <td>₹4000</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 | Built by You 😎 <br><br>
+    📞 Contact: <strong>9305893662</strong> <br>
+    Jai Mata Di 🙏
+</footer>
+
+<script>
+function toggleDark(){
+    document.body.classList.toggle("dark");
+}
+
+function payNow(){
+    alert("✅ Demo Payment Successful");
+}
+
+function login(){
+    if(user.value==="admin" && pass.value==="1234"){
+        document.getElementById("dashboard").style.display="block";
+        alert("Welcome Admin 👑");
+        document.getElementById("dashboard").scrollIntoView({behavior:"smooth"});
+    }else{
+        alert("❌ Invalid Login");
+    }
+}
+
+function scrollPay(){
+    document.getElementById("payment").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
