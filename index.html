@@ -67,10 +67,39 @@ nav a{
     font-weight:600;
 }
 
-/* HERO */
-.hero{
-    padding:90px 40px;
+/* ================= VIDEO HERO ================= */
+.video-hero{
+    position:relative;
+    height:90vh;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     text-align:center;
+}
+
+.video-hero video{
+    position:absolute;
+    top:50%;
+    left:50%;
+    min-width:100%;
+    min-height:100%;
+    transform:translate(-50%,-50%);
+    object-fit:cover;
+    z-index:-2;
+}
+
+.video-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    z-index:-1;
+}
+
+.video-content{
+    color:white;
+    max-width:900px;
+    padding:20px;
     animation:fade 1.2s ease;
 }
 
@@ -132,6 +161,9 @@ footer{
         text-align:center;
         gap:15px;
     }
+    .video-hero{
+        height:80vh;
+    }
 }
 </style>
 </head>
@@ -149,11 +181,24 @@ footer{
     </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-    <h1>Premium Website for Local Businesses</h1>
-    <p>Tuition • Coaching • Shops • Services</p><br>
-    <button class="btn" onclick="scrollPay()">Get Started</button>
+<!-- VIDEO HERO -->
+<section class="video-hero">
+    <video autoplay muted loop playsinline>
+        <source src="https://cdn.coverr.co/videos/coverr-working-on-a-laptop-1578/1080p.mp4" type="video/mp4">
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="video-content">
+        <h1 style="font-size:48px;margin-bottom:15px;">
+            Premium Website for Local Businesses
+        </h1>
+        <p style="font-size:20px;opacity:0.9;">
+            Tuition • Coaching • Shops • Services
+        </p>
+        <br>
+        <button class="btn" onclick="scrollPay()">Get Started</button>
+    </div>
 </section>
 
 <!-- PAYMENT -->
